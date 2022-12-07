@@ -35,6 +35,8 @@ export const startConversation = async (bearerToken?: string, webPages?: string[
     try {
         console.log('sending request...')
         let finalValue = ''
+        // COMMENTED OUT FOR TESTING, BUT IS NECESSAR TO SEND REQUESTS TO OPENAI
+        
         // const res = await fetch(URL, {
         //     method: 'POST',
         //     mode: 'cors',
