@@ -35,7 +35,7 @@ export const startConversation = async (bearerToken?: string, webPages?: string[
     try {
         console.log('sending request...')
         let finalValue = ''
-        // COMMENTED OUT FOR TESTING, BUT IS NECESSAR TO SEND REQUESTS TO OPENAI
+        // COMMENTED OUT FOR TESTING, BUT IS NECESSARY TO SEND REQUESTS TO OPENAI
         
         // const res = await fetch(URL, {
         //     method: 'POST',
@@ -57,11 +57,11 @@ export const startConversation = async (bearerToken?: string, webPages?: string[
         // if (chunks[chunks.length - 1] == '[DONE]\n\n') {
             // finalValue = chunks[chunks.length - 2]
             // Hardcode for development to avoid exceeding OpenAI rate limits
-            finalValue = '{"message": {"id": "d0b9a571-d238-4c05-9004-f3e3c03a9f5c", "role": "assistant", "user": null, "create_time": null, "update_time": null, "content": {"content_type": "text", "parts": ["Sure, I can add that to the context for future prompts. Here is the updated context:\n\nJason is a product manager. He works at a technology company where he is responsible for developing and launching new products. He has a background in computer science and has been in the tech industry for several years."]}, "end_turn": null, "weight": 1.0, "metadata": {}, "recipient": "all"}, "conversation_id": "e2eeb07f-b075-4a8a-8c9b-94c505451db6", "error": null}'
+            finalValue = '{"message": {"id": "d0b9a571-d238-4c05-9004-f3e3c03a9f5c", "role": "assistant", "user": null, "create_time": null, "update_time": null, "content": {"content_type": "text", "parts": ["Sure, I can add that to the context for future prompts. Here is the updated context:\\n\\nJason is a product manager. He works at a technology company where he is responsible for developing and launching new products. He has a background in computer science and has been in the tech industry for several years."]}, "end_turn": null, "weight": 1.0, "metadata": {}, "recipient": "all"}, "conversation_id": "e2eeb07f-b075-4a8a-8c9b-94c505451db6", "error": null}'
             console.log(finalValue)
             console.log(JSON.parse(finalValue))
             if (finalValue.length > 0) {
-                return ({success: true, message: JSON.parse(finalValue)})
+                return (JSON.parse(finalValue))
             } else {
                 throw new Error('Problem getting the response from ChatGPT')    
             }
@@ -70,6 +70,6 @@ export const startConversation = async (bearerToken?: string, webPages?: string[
         // }
         
     } catch (err: any) {
-        return ({success: false, message: err})
+        throw(err)
     }
 }

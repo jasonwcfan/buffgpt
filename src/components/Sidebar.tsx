@@ -24,7 +24,8 @@ import {
 interface Props {
     startNewConversation: () => void,
     bearerToken?: string,
-    setBearerToken: (value: string) => void
+    setBearerToken: (value: string) => void,
+    isLoading: boolean
 }
 
 export const Sidebar = (props: Props) => {
@@ -68,7 +69,7 @@ export const Sidebar = (props: Props) => {
                     <Button width={75} ml={4} colorScheme='teal'>Import</Button>
                 </Flex>
             </Box> */}
-            <Flex mt={24} mb={24} justifyContent='center'><Button size='lg' colorScheme='teal' onClick={() => props.startNewConversation()}>START NEW CONVERSATION</Button></Flex>
+            <Flex mt={24} mb={24} justifyContent='center'><Button size='lg' colorScheme='teal' isLoading={props.isLoading} onClick={() => props.startNewConversation()}>START NEW CONVERSATION</Button></Flex>
         </FormControl>
     </Container>)
 }

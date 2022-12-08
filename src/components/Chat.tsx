@@ -21,27 +21,23 @@ interface ChatMessage {
 
 interface Props {
     sendMessageToGPT: (value: string) => void,
-    isLoading: boolean
+    setMessages: Function,
+    messages: Array<any>,
+    conversationId: string
 }
 
 export const Chat = (props: Props) => {
-    const [chatMessages, setChatMessages] = useState(new Array<ChatMessage>)
-
     const sendMessage = (value: string) => {
-        setChatMessages([...chatMessages, {message: value, sender: 'user', direction: 'outgoing'}])
+        props.setMessages([...props.messages, {message: value, sender: 'user', direction: 'outgoing'}])
         props.sendMessageToGPT(value)
     }
 
-    const receiveMessage = (value: string) => {
-        setChatMessages([...chatMessages, {message: value, sender: 'gpt', direction: 'incoming'}])
-    }
-
     return (
-        <Box position='relative' flexGrow={1} height='75vh'>
+        <Box position='relative' flexGrow={1} height='75vh' display={props.conversationId.length > 0 ? 'initial' : 'none'}>
         <MainContainer>
             <ChatContainer>       
                 <MessageList>
-                    {chatMessages.map((m, i) => 
+                    {props.messages.map((m, i) => 
                         <Message model={{
                             message: m.message,
                             sender: m.sender,
