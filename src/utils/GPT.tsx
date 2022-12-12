@@ -1,3 +1,4 @@
+import { Message } from '@chatscope/chat-ui-kit-react'
 import { v4 as uuidv4 } from 'uuid'
 // Util that takes a bearer token, message and conversation ID, then sends the message to chatGPT.
 // TODO:
@@ -32,6 +33,7 @@ export async function addEmailsToInput(leads: any[], founder: any) {
             console.log(email)
 
             lead["Custom Email"] = email
+            lead["Prompt"] = message
 
         }
 
@@ -47,7 +49,8 @@ export async function addEmailsToInput(leads: any[], founder: any) {
             "Company Linkedin Url": lead["Company Linkedin Url"],
             "Country": lead.Country,
             "Latest Funding": lead["Latest Funding"],
-            "Custom Email": lead["Custom Email"]
+            "Custom Email": lead["Custom Email"],
+            "Prompt": lead["Prompt"]
 
         })
     }
