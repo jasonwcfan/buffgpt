@@ -42,9 +42,9 @@ export async function addEmailsToInput(leads: any[], founder: any) {
             "Company": lead.Company,
             "First Phone": lead["First Phone"],
             "# Employees": lead["# Employees"],
-            "Person Linkedin": lead["Person Linkedin"],
+            "Person Linkedin Url": lead["Person Linkedin Url"],
             "Website": lead.Website,
-            "Company Linkedin": lead["Company Linkedin"],
+            "Company Linkedin Url": lead["Company Linkedin Url"],
             "Country": lead.Country,
             "Latest Funding": lead["Latest Funding"],
             "Custom Email": lead["Custom Email"]
