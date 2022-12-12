@@ -14,7 +14,8 @@ import { Sidebar } from './components/Sidebar'
 import { Chat } from './components/Chat'
 import {MessageDirection} from '@chatscope/chat-ui-kit-react/src/types/unions'
 
-import { sendMessage, startConversation } from './utils/GPT'
+import {  startConversation } from './utils/GPT'
+import { GenerateEmailsForm } from "./components/GenerateEmailsForm"
 
 const BEARER_TOKEN = process.env.REACT_APP_BEARER_TOKEN
 
@@ -31,16 +32,16 @@ export const App = () => {
   const [messages, setMessages] = useState(new Array<ChatMessage>)
   const [isLoading, setIsLoading] = useState(false)
 
-  const sendMessageToGPT = async (message: string) => {
-    const res = await sendMessage(BEARER_TOKEN, message, conversationId)
-  }
+  // const sendMessageToGPT = async (message: string) => {
+  //   const res = await sendMessage(BEARER_TOKEN, message, conversationId)
+  // }
 
-  const startNewConversation = async () => {
-    setIsLoading(true)
-    const res = await startConversation(BEARER_TOKEN, webPages)
-    setIsLoading(false)
-    setConversationId(res.conversation_id)
-  }
+  // const startNewConversation = async () => {
+  //   setIsLoading(true)
+  //   const res = await startConversation(BEARER_TOKEN, webPages)
+  //   setIsLoading(false)
+  //   setConversationId(res.conversation_id)
+  // }
 
   const receiveMessage = (value: string) => {
     setMessages([...messages, {message: value, sender: 'gpt', direction: 'incoming'}])
@@ -48,10 +49,10 @@ export const App = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <HStack >
-        <Sidebar startNewConversation={startNewConversation} bearerToken={BEARER_TOKEN} setBearerToken={setBearerToken} isLoading={isLoading}/>
-        <Chat sendMessageToGPT={sendMessageToGPT} setMessages={setMessages} messages={messages} conversationId={conversationId}/>
-      </HStack>
+      <Box display="flex" alignItems="center" padding="10px" borderBottom="1px solid lightgrey">
+          <Link href="https://www.withtriton.xyz/"><Text>Buff</Text></Link>
+      </Box>
+      <GenerateEmailsForm />
     </ChakraProvider>
   )
 }

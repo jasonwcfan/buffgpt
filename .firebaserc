@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "spearmint-fbf84"
+  },
+  "targets": {
+    "spearmint-fbf84": {
+      "hosting": {
+        "buff": [
+          "buff-sales"
+        ]
+      }
+    }
+  }
+}
