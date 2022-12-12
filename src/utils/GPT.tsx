@@ -17,7 +17,7 @@ function getPrompt(lead: any, founder: any) {
     
     ${founder.Founder} is the cofounder of ${founder.Company}, a startup. ${founder.Company} is a SaaS company. This is a description of what ${founder.Company} does: ${founder.Description}
     
-    Write a succinct, customized, outreach email from ${founder.Founder} to ${lead["First Name"]}. The email should not sound too sales-y, but make it clear that ${founder.Company}} can benefit ${lead.Company} with specific examples. It should not make claims about the types of customers ${founder.Company} has. It should also sound like a millenial/gen z person wrote it.`
+    Write a succinct, customized, outreach email from ${founder.Founder} to ${lead["First Name"]}. The email should not sound too sales-y, but make it clear that ${founder.Company} can benefit ${lead.Company} with specific examples. It should not make claims about the types of customers ${founder.Company} has. It should also sound like a millenial/gen z person wrote it.`
 }
 
 export async function addEmailsToInput(leads: any[], founder: any) {
