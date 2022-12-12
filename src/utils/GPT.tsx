@@ -11,7 +11,7 @@ const URL = 'https://chat.openai.com/backend-api/conversation'
 const BEARER_TOKEN = process.env.REACT_APP_BEARER_TOKEN
 
 function getPrompt(lead: any, founder: any) {
-    return `${lead["First Name"]} ${lead["Last Name"]} is the cofounder and ${lead["Title"]} at ${lead["Company"]}, a ${lead["Latest Funding"]} stage startup. 
+    return `${lead["First Name"]} ${lead["Last Name"]} is the cofounder and ${lead["Title"]} at ${lead["Company"]}. 
 
     This is a description of what ${lead["Company"]} does: ${lead["SEO Description"]}
     
